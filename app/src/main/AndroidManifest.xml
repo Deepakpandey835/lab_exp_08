@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.google.developer.taskmaker">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.Deepak_pandey.labexp_9.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.Deepak_pandey.labexp_9.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName="com.Deepak_pandey.labexp_9.MainActivity"/>
+
+        <activity
+            android:name="com.Deepak_pandey.labexp_9.AddTaskActivity"
+            android:exported="false"
+            android:parentActivityName="com.Deepak_pandey.labexp_9.MainActivity"/>
+
+        <activity
+            android:name="com.Deepak_pandey.labexp_9.TaskDetailActivity"
+            android:exported="false"
+            android:parentActivityName="com.Deepak_pandey.labexp_9.MainActivity"/>
+
+        <service
+            android:name="com.Deepak_pandey.labexp_9.data.TaskUpdateService"
+            android:exported="false" />
+
+        <service
+            android:name="com.Deepak_pandey.labexp_9.reminders.ReminderAlarmService"
+            android:exported="false" />
+
+        <provider
+            android:name="com.Deepak_pandey.labexp_9.data.TaskProvider"
+            android:authorities="com.google.developer.taskmaker"
+            android:exported="false"/>
+
+        <service
+            android:name="com.Deepak_pandey.labexp_9.data.CleanupJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
+
+    </application>
+
+</manifest>
